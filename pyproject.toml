@@ -1,0 +1,64 @@
+[tool.poetry]
+name = "base_wrapper"
+version = "0.1.0"
+description = ""
+authors = ["Rafael <contact.devrma@gmail.com>"]
+maintainers = ["Rafael <contact.devrma@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/devRMA/base_wrapper"
+packages = [{ include = "base_wrapper" }]
+
+[tool.poetry.dependencies]
+python = "^3.6.1"
+aiohttp = "^3.8.1"
+
+[tool.poetry.dev-dependencies]
+assertpy = "^1.1"
+coveralls = "^3.3.1"
+flake8 = "^4.0.1"
+isort = "^5.10.1"
+mypy = "^0.931"
+pytest = "^7.0.1"
+pytest-cov = "^3.0.0"
+pytest-describe = "^2.0.1"
+pytest-sugar = "^0.9.4"
+semantic-version = "^2.9.0"
+taskipy = "^1.10.1"
+toml = "^0.10.2"
+types-toml = "^0.10.4"
+yapf = "^0.32.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+bump-version-major = "scripts.bump_version:bump_major"
+bump-version-minor = "scripts.bump_version:bump_minor"
+bump-version-patch = "scripts.bump_version:bump_patch"
+
+[tool.isort]
+profile = "black"
+py_version = "36"
+
+[tool.mypy]
+namespace_packages = "True"
+
+[tool.yapf]
+based_on_style = "facebook"
+indent_width = 4
+
+[tool.taskipy.tasks]
+test = { cmd = "task pytest && task coverage", help = "runs all tests and generate the coverage report" }
+lint = { cmd = "task mypy && task flake8", help = "Run mypy and flake8 on the project" }
+format = { cmd = "task yapf && task isort", help = "Run yapf and isort on the project" }
+
+pytest = { cmd = "python -m coverage run -m pytest", help = "run pytest and generate coverage report" }
+coverage = { cmd = "python -m coverage html --omit=scripts/*", help = "generate html with the coverage report" }
+
+mypy = { cmd = "python -m mypy --pretty base_wrapper", help = "Run mypy on the project" }
+flake8 = { cmd = "python -m flake8 --benchmark base_wrapper", help = "Run flake8 on the project" }
+
+yapf = { cmd = "python -m yapf -r -i -vv base_wrapper", help = "Run yapf on the project" }
+isort = { cmd = "python -m isort base_wrapper", help = "Run isort on the project" }
