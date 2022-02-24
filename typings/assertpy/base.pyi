@@ -1,0 +1,43 @@
+from __future__ import annotations
+
+from typing import Any
+
+__tracebackhide__: bool = ...
+
+
+class BaseMixin:
+    def described_as(self, description: str) -> BaseMixin:
+        ...
+
+    def is_equal_to(self, other: Any, **kwargs: Any) -> BaseMixin:
+        ...
+
+    def is_not_equal_to(self, other: Any) -> BaseMixin:
+        ...
+
+    def is_same_as(self, other: Any) -> BaseMixin:
+        ...
+
+    def is_not_same_as(self, other: Any) -> BaseMixin:
+        ...
+
+    def is_true(self) -> BaseMixin:
+        ...
+
+    def is_false(self) -> BaseMixin:
+        ...
+
+    def is_none(self) -> BaseMixin:
+        ...
+
+    def is_not_none(self) -> BaseMixin:
+        ...
+
+    def is_type_of(self, some_type: type) -> BaseMixin:
+        ...
+
+    def is_instance_of(self, some_class: type) -> BaseMixin:
+        ...
+
+    def is_length(self, length: int) -> BaseMixin:
+        ...
