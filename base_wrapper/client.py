@@ -33,8 +33,7 @@ class Client:
 
         kwargs['headers'] = headers
 
-        async with self.__session.request(method, url, **kwargs) as response:
-            return response
+        return await self.__session.request(method, url, **kwargs)
 
     def recreate(self) -> None:
         if self.__session.closed:
