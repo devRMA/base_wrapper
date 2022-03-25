@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "base_wrapper"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 authors = ["Rafael <contact.devrma@gmail.com>"]
 maintainers = ["Rafael <contact.devrma@gmail.com>"]
