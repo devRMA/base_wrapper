@@ -7,9 +7,6 @@ from .route import Route
 
 
 class Client:
-    # TODO : Add cache
-    # cacheTime: ClassVar[Optional[float]] = None
-
     def __init__(
         self, connector: Optional[aiohttp.BaseConnector] = None
     ) -> None:
@@ -36,7 +33,6 @@ class Client:
 
         kwargs['headers'] = headers
 
-        # TODO : Before each request, check if have cache
         async with self.__session.request(method, url, **kwargs) as response:
             return response
 
