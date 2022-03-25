@@ -19,7 +19,7 @@ class Client:
         self,
         route: Route,
         **kwargs: Any,
-    ) -> Any:
+    ) -> aiohttp.ClientResponse:
         method = route.method
         url = route.url
 
